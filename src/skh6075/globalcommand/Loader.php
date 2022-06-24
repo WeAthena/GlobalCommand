@@ -8,6 +8,7 @@ use kim\present\libmultilingual\Language;
 use kim\present\libmultilingual\Translator;
 use pocketmine\command\Command;
 use pocketmine\event\EventPriority;
+use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\server\DataPacketSendEvent;
 use pocketmine\network\mcpe\protocol\AvailableCommandsPacket;
 use pocketmine\plugin\PluginBase;
@@ -80,5 +81,7 @@ final class Loader extends PluginBase{
 				}
 			}
 		}, EventPriority::HIGHEST, $this);
+
+		$this->getServer()->getPluginManager()->registerEvent(PlayerJoinEvent::class, fn(PlayerJoinEvent $event) => $event->getPlayer()->getNetworkSession()->syncAvailableCommands(), EventPriority::MONITOR, $this);
 	}
 }
