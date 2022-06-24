@@ -11,12 +11,11 @@ use skh6075\globalcommand\Loader;
 abstract class GlobalCommand extends Command{
 
 	public function __construct(
-		string $commandName,
-		string $commandDescription,
-		private array $nameParams = [],
-		private array $descriptionParams = []
+		string $name,
+		string $description,
+		private array $params = []
 	){
-		parent::__construct($commandName, $commandDescription);
+		parent::__construct($name, $description);
 	}
 
 	public function register(CommandMap $commandMap) : bool{
@@ -35,11 +34,7 @@ abstract class GlobalCommand extends Command{
 		return true;
 	}
 
-	public function getNameParams(): array{
-		return $this->nameParams;
-	}
-
-	public function getDescriptionParams(): array{
-		return $this->descriptionParams;
+	public function getParams(): array{
+		return $this->params;
 	}
 }

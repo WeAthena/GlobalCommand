@@ -78,10 +78,8 @@ final class Loader extends PluginBase{
 						if($command === null || !$this->getGlobalCommand($command)){
 							continue;
 						}
-						$commandDatum->name = $this->translator->translate($command->getName(), $command->getNameParams(), $player);
-						$commandDatum->description = $this->translator->translate($command->getDescription(), $command->getDescriptionParams(), $player);
+						$commandDatum->description = $this->translator->translate($command->getDescription(), $command->getParams(), $player);
 					}
-					$player->getNetworkSession()->sendDataPacket($packet);
 				}
 			}
 		}, EventPriority::HIGHEST, $this);
