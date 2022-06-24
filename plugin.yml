@@ -1,0 +1,8 @@
+name: GlobalCommand
+main: skh6075\globalcommand\Loader
+author: skh6075
+version: 1.0.0
+api: 4.0.0
+website: https://github.com/skh6075
+depend:
+  - DEVirion
