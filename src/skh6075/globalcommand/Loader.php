@@ -50,6 +50,10 @@ final class Loader extends PluginBase{
 		unset($this->commands[$id]);
 	}
 
+	protected function onLoad() : void{
+		self::$instance = $this;
+	}
+
 	protected function onEnable() : void{
 		$this->saveResource("locale/kor.ini");
 		$this->saveResource("locale/eng.ini");
